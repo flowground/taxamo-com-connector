@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "interval": {
+            "required": true,
+            "type": "string"
+        },
+        "date_from": {
+            "required": true,
+            "type": "string"
+        },
+        "date_to": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

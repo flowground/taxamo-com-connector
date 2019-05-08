@@ -1,0 +1,22 @@
+{
+    "type": "object",
+    "properties": {
+        "key": {
+            "required": true,
+            "type": "string"
+        },
+        "refund_note_number": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "buyer_email": {
+                    "description": "Email to send the credit note/refund note. If not provided, transaction.buyer_email will be used.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

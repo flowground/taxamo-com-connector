@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+        "format": {
+            "required": false,
+            "type": "string"
+        },
+        "moss_country_code": {
+            "required": false,
+            "type": "string"
+        },
+        "tax_region": {
+            "required": false,
+            "type": "string"
+        },
+        "date_from": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

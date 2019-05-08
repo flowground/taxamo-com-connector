@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "limit": {
+            "required": false,
+            "type": "string"
+        },
+        "offset": {
+            "required": false,
+            "type": "string"
+        },
+        "key": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

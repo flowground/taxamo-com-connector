@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+        "key": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "buyer_email": {
+                    "description": "Email to send the invoice. If not provided, transaction.buyer_email will be used.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "type": "object",
+    "properties": {
+        "key": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "amount": {
+                    "description": "Amount that has been paid. Use negative value to register refunds.",
+                    "type": "number"
+                },
+                "payment_information": {
+                    "description": "Additional payment information.",
+                    "type": "string"
+                },
+                "payment_timestamp": {
+                    "description": "When the payment was received in yyyy-MM-dd'T'HH:mm:ss(.SSS)'Z' format (24 hour, UTC timezone). Defaults to current date and time.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "amount"
+            ],
+            "type": "object"
+        }
+    }
+}

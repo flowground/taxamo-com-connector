@@ -1,0 +1,29 @@
+{
+    "type": "object",
+    "properties": {
+        "format": {
+            "required": false,
+            "type": "string"
+        },
+        "country_code": {
+            "required": true,
+            "type": "string"
+        },
+        "currency_code": {
+            "required": false,
+            "type": "string"
+        },
+        "start_month": {
+            "required": true,
+            "type": "string"
+        },
+        "end_month": {
+            "required": true,
+            "type": "string"
+        },
+        "fx_date_type": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "ip": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

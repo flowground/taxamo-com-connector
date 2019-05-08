@@ -1,0 +1,34 @@
+{
+    "type": "object",
+    "properties": {
+        "key": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "amount": {
+                    "description": "Amount (without tax) to be refunded. Either amount or total amount is required. In case of line key and custom id missing, only total_amount can be used.",
+                    "type": "number"
+                },
+                "custom_id": {
+                    "description": "Line custom identifier. If neither line key or custom id is provided, the refund amount will be assigned to lines in order.",
+                    "type": "string"
+                },
+                "line_key": {
+                    "description": "Line identifier. If neither line key or custom id is provided, the refund amount will be assigned to lines in order.",
+                    "type": "string"
+                },
+                "refund_reason": {
+                    "description": "Refund reason, displayed on the credit note.",
+                    "type": "string"
+                },
+                "total_amount": {
+                    "description": "Total amount, including tax, to be refunded. Either amount or total amount is required. In case of line key and custom id missing, only total_amount can be used.",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

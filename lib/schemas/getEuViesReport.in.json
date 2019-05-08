@@ -1,0 +1,45 @@
+{
+    "type": "object",
+    "properties": {
+        "period_length": {
+            "required": false,
+            "type": "string"
+        },
+        "lff_sequence_number": {
+            "required": false,
+            "type": "string"
+        },
+        "transformation": {
+            "required": false,
+            "type": "string"
+        },
+        "currency_code": {
+            "required": false,
+            "type": "string"
+        },
+        "end_month": {
+            "required": true,
+            "type": "string"
+        },
+        "tax_id": {
+            "required": false,
+            "type": "string"
+        },
+        "start_month": {
+            "required": true,
+            "type": "string"
+        },
+        "eu_country_code": {
+            "required": true,
+            "type": "string"
+        },
+        "fx_date_type": {
+            "required": false,
+            "type": "string"
+        },
+        "format": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

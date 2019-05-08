@@ -1,0 +1,13 @@
+{
+    "type": "object",
+    "properties": {
+        "billing_country_code": {
+            "required": false,
+            "type": "string"
+        },
+        "buyer_credit_card_prefix": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,1490 @@
+{
+    "type": "object",
+    "properties": {
+        "key": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "transaction": {
+                    "description": "Transaction.",
+                    "properties": {
+                        "additional_currencies": {
+                            "description": "Additional currency information - can be used to receive additional information about invoice in another currency.",
+                            "properties": {
+                                "invoice": {
+                                    "description": "Invoicing currency information.",
+                                    "properties": {
+                                        "amount": {
+                                            "description": "Amount (w/o TAX) in designated currency.",
+                                            "type": "number"
+                                        },
+                                        "currency_code": {
+                                            "description": "3-letter ISO currency code.",
+                                            "type": "string"
+                                        },
+                                        "fx_rate": {
+                                            "description": "Foreign exchange rate used in calculation",
+                                            "type": "number"
+                                        },
+                                        "tax_amount": {
+                                            "description": "Tax amount in designated currency.",
+                                            "type": "number"
+                                        },
+                                        "total_amount": {
+                                            "description": "Total amount in designated currency.",
+                                            "type": "number"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "amount": {
+                            "description": "Amount of transaction without tax.",
+                            "type": "number"
+                        },
+                        "billing_country_code": {
+                            "description": "Billing two letter ISO country code.",
+                            "type": "string"
+                        },
+                        "buyer_credit_card_prefix": {
+                            "description": "First 6 digits of buyer's credit card prefix.",
+                            "type": "string"
+                        },
+                        "buyer_email": {
+                            "description": "Buyer's declared email address.",
+                            "type": "string"
+                        },
+                        "buyer_ip": {
+                            "description": "IP address of the buyer in dotted decimal (IPv4) or text format (IPv6).",
+                            "type": "string"
+                        },
+                        "buyer_name": {
+                            "description": "Buyer's name - first name and last name or company name.",
+                            "type": "string"
+                        },
+                        "buyer_tax_number": {
+                            "description": " Buyer's tax number - EU VAT number for example. If using EU VAT number, it is possible to provide country code in it (e.g. IE1234567X) or simply use billing_country_code field for that. In the first case, if billing_country_code value was provided, it will be overwritten with country code value extracted from VAT number - but only if the VAT has been verified properly.",
+                            "type": "string"
+                        },
+                        "buyer_tax_number_valid": {
+                            "description": "If the buyer tax number has been provided and was validated successfully. Always true for domestic transactions (billing country same as merchant's country), tax number doesn't get validated in that case.",
+                            "type": "boolean"
+                        },
+                        "comments": {
+                            "description": "Additional information about the transaction - for example if the evidence has been amended.",
+                            "type": "string"
+                        },
+                        "confirm_timestamp": {
+                            "description": "Date and time of transaction confirmation.",
+                            "type": "string"
+                        },
+                        "countries": {
+                            "description": "Map of countries calculated from evidence provided. This value is not stored and is available only upon tax calculation.",
+                            "properties": {
+                                "by_2003_rules": {
+                                    "description": "Used when merchant uses 2003 EU VAT rules.",
+                                    "properties": {
+                                        "callingCode": {
+                                            "description": "List of phone number calling codes.",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "cca2": {
+                                            "description": "Two letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "cca3": {
+                                            "description": "Three letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "ccn3": {
+                                            "description": "Country ISO 3-digit code.",
+                                            "type": "string"
+                                        },
+                                        "code": {
+                                            "description": "Two letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "code_long": {
+                                            "description": "Three letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "codenum": {
+                                            "description": "Country ISO 3-digit code.",
+                                            "type": "string"
+                                        },
+                                        "currency": {
+                                            "description": "List of currencies.",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "name": {
+                                            "description": "Country name.",
+                                            "type": "string"
+                                        },
+                                        "tax_number_country_code": {
+                                            "description": "VAT number country code. Important for Greece.",
+                                            "type": "string"
+                                        },
+                                        "tax_region": {
+                                            "description": "Tax region code - e.g. EU, US, NO, JP...",
+                                            "type": "string"
+                                        },
+                                        "tax_supported": {
+                                            "description": "True if tax calculation supported for this country.",
+                                            "type": "boolean"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "by_billing": {
+                                    "description": "Country detected by billing country code",
+                                    "properties": {
+                                        "callingCode": {
+                                            "description": "List of phone number calling codes.",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "cca2": {
+                                            "description": "Two letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "cca3": {
+                                            "description": "Three letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "ccn3": {
+                                            "description": "Country ISO 3-digit code.",
+                                            "type": "string"
+                                        },
+                                        "code": {
+                                            "description": "Two letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "code_long": {
+                                            "description": "Three letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "codenum": {
+                                            "description": "Country ISO 3-digit code.",
+                                            "type": "string"
+                                        },
+                                        "currency": {
+                                            "description": "List of currencies.",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "name": {
+                                            "description": "Country name.",
+                                            "type": "string"
+                                        },
+                                        "tax_number_country_code": {
+                                            "description": "VAT number country code. Important for Greece.",
+                                            "type": "string"
+                                        },
+                                        "tax_region": {
+                                            "description": "Tax region code - e.g. EU, US, NO, JP...",
+                                            "type": "string"
+                                        },
+                                        "tax_supported": {
+                                            "description": "True if tax calculation supported for this country.",
+                                            "type": "boolean"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "by_cc": {
+                                    "description": "Country detected by credit card number prefix",
+                                    "properties": {
+                                        "callingCode": {
+                                            "description": "List of phone number calling codes.",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "cca2": {
+                                            "description": "Two letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "cca3": {
+                                            "description": "Three letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "ccn3": {
+                                            "description": "Country ISO 3-digit code.",
+                                            "type": "string"
+                                        },
+                                        "code": {
+                                            "description": "Two letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "code_long": {
+                                            "description": "Three letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "codenum": {
+                                            "description": "Country ISO 3-digit code.",
+                                            "type": "string"
+                                        },
+                                        "currency": {
+                                            "description": "List of currencies.",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "name": {
+                                            "description": "Country name.",
+                                            "type": "string"
+                                        },
+                                        "tax_number_country_code": {
+                                            "description": "VAT number country code. Important for Greece.",
+                                            "type": "string"
+                                        },
+                                        "tax_region": {
+                                            "description": "Tax region code - e.g. EU, US, NO, JP...",
+                                            "type": "string"
+                                        },
+                                        "tax_supported": {
+                                            "description": "True if tax calculation supported for this country.",
+                                            "type": "boolean"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "by_ip": {
+                                    "description": "Country detected by IP",
+                                    "properties": {
+                                        "callingCode": {
+                                            "description": "List of phone number calling codes.",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "cca2": {
+                                            "description": "Two letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "cca3": {
+                                            "description": "Three letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "ccn3": {
+                                            "description": "Country ISO 3-digit code.",
+                                            "type": "string"
+                                        },
+                                        "code": {
+                                            "description": "Two letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "code_long": {
+                                            "description": "Three letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "codenum": {
+                                            "description": "Country ISO 3-digit code.",
+                                            "type": "string"
+                                        },
+                                        "currency": {
+                                            "description": "List of currencies.",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "name": {
+                                            "description": "Country name.",
+                                            "type": "string"
+                                        },
+                                        "tax_number_country_code": {
+                                            "description": "VAT number country code. Important for Greece.",
+                                            "type": "string"
+                                        },
+                                        "tax_region": {
+                                            "description": "Tax region code - e.g. EU, US, NO, JP...",
+                                            "type": "string"
+                                        },
+                                        "tax_supported": {
+                                            "description": "True if tax calculation supported for this country.",
+                                            "type": "boolean"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "by_tax_number": {
+                                    "description": "Country detected from EU TAX number",
+                                    "properties": {
+                                        "callingCode": {
+                                            "description": "List of phone number calling codes.",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "cca2": {
+                                            "description": "Two letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "cca3": {
+                                            "description": "Three letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "ccn3": {
+                                            "description": "Country ISO 3-digit code.",
+                                            "type": "string"
+                                        },
+                                        "code": {
+                                            "description": "Two letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "code_long": {
+                                            "description": "Three letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "codenum": {
+                                            "description": "Country ISO 3-digit code.",
+                                            "type": "string"
+                                        },
+                                        "currency": {
+                                            "description": "List of currencies.",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "name": {
+                                            "description": "Country name.",
+                                            "type": "string"
+                                        },
+                                        "tax_number_country_code": {
+                                            "description": "VAT number country code. Important for Greece.",
+                                            "type": "string"
+                                        },
+                                        "tax_region": {
+                                            "description": "Tax region code - e.g. EU, US, NO, JP...",
+                                            "type": "string"
+                                        },
+                                        "tax_supported": {
+                                            "description": "True if tax calculation supported for this country.",
+                                            "type": "boolean"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "by_token": {
+                                    "description": "Country detected from SMS token",
+                                    "properties": {
+                                        "callingCode": {
+                                            "description": "List of phone number calling codes.",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "cca2": {
+                                            "description": "Two letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "cca3": {
+                                            "description": "Three letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "ccn3": {
+                                            "description": "Country ISO 3-digit code.",
+                                            "type": "string"
+                                        },
+                                        "code": {
+                                            "description": "Two letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "code_long": {
+                                            "description": "Three letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "codenum": {
+                                            "description": "Country ISO 3-digit code.",
+                                            "type": "string"
+                                        },
+                                        "currency": {
+                                            "description": "List of currencies.",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "name": {
+                                            "description": "Country name.",
+                                            "type": "string"
+                                        },
+                                        "tax_number_country_code": {
+                                            "description": "VAT number country code. Important for Greece.",
+                                            "type": "string"
+                                        },
+                                        "tax_region": {
+                                            "description": "Tax region code - e.g. EU, US, NO, JP...",
+                                            "type": "string"
+                                        },
+                                        "tax_supported": {
+                                            "description": "True if tax calculation supported for this country.",
+                                            "type": "boolean"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "detected": {
+                                    "description": "Country detected from other evidence",
+                                    "properties": {
+                                        "callingCode": {
+                                            "description": "List of phone number calling codes.",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "cca2": {
+                                            "description": "Two letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "cca3": {
+                                            "description": "Three letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "ccn3": {
+                                            "description": "Country ISO 3-digit code.",
+                                            "type": "string"
+                                        },
+                                        "code": {
+                                            "description": "Two letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "code_long": {
+                                            "description": "Three letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "codenum": {
+                                            "description": "Country ISO 3-digit code.",
+                                            "type": "string"
+                                        },
+                                        "currency": {
+                                            "description": "List of currencies.",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "name": {
+                                            "description": "Country name.",
+                                            "type": "string"
+                                        },
+                                        "tax_number_country_code": {
+                                            "description": "VAT number country code. Important for Greece.",
+                                            "type": "string"
+                                        },
+                                        "tax_region": {
+                                            "description": "Tax region code - e.g. EU, US, NO, JP...",
+                                            "type": "string"
+                                        },
+                                        "tax_supported": {
+                                            "description": "True if tax calculation supported for this country.",
+                                            "type": "boolean"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "forced": {
+                                    "description": "Country forced by paramters",
+                                    "properties": {
+                                        "callingCode": {
+                                            "description": "List of phone number calling codes.",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "cca2": {
+                                            "description": "Two letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "cca3": {
+                                            "description": "Three letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "ccn3": {
+                                            "description": "Country ISO 3-digit code.",
+                                            "type": "string"
+                                        },
+                                        "code": {
+                                            "description": "Two letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "code_long": {
+                                            "description": "Three letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "codenum": {
+                                            "description": "Country ISO 3-digit code.",
+                                            "type": "string"
+                                        },
+                                        "currency": {
+                                            "description": "List of currencies.",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "name": {
+                                            "description": "Country name.",
+                                            "type": "string"
+                                        },
+                                        "tax_number_country_code": {
+                                            "description": "VAT number country code. Important for Greece.",
+                                            "type": "string"
+                                        },
+                                        "tax_region": {
+                                            "description": "Tax region code - e.g. EU, US, NO, JP...",
+                                            "type": "string"
+                                        },
+                                        "tax_supported": {
+                                            "description": "True if tax calculation supported for this country.",
+                                            "type": "boolean"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "guessed_from_ip": {
+                                    "description": "Country guessed from IP due to lack of other evidence",
+                                    "properties": {
+                                        "callingCode": {
+                                            "description": "List of phone number calling codes.",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "cca2": {
+                                            "description": "Two letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "cca3": {
+                                            "description": "Three letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "ccn3": {
+                                            "description": "Country ISO 3-digit code.",
+                                            "type": "string"
+                                        },
+                                        "code": {
+                                            "description": "Two letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "code_long": {
+                                            "description": "Three letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "codenum": {
+                                            "description": "Country ISO 3-digit code.",
+                                            "type": "string"
+                                        },
+                                        "currency": {
+                                            "description": "List of currencies.",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "name": {
+                                            "description": "Country name.",
+                                            "type": "string"
+                                        },
+                                        "tax_number_country_code": {
+                                            "description": "VAT number country code. Important for Greece.",
+                                            "type": "string"
+                                        },
+                                        "tax_region": {
+                                            "description": "Tax region code - e.g. EU, US, NO, JP...",
+                                            "type": "string"
+                                        },
+                                        "tax_supported": {
+                                            "description": "True if tax calculation supported for this country.",
+                                            "type": "boolean"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "other_commercially_relevant_info": {
+                                    "description": "Additional evidence held by the merchant.",
+                                    "properties": {
+                                        "callingCode": {
+                                            "description": "List of phone number calling codes.",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "cca2": {
+                                            "description": "Two letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "cca3": {
+                                            "description": "Three letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "ccn3": {
+                                            "description": "Country ISO 3-digit code.",
+                                            "type": "string"
+                                        },
+                                        "code": {
+                                            "description": "Two letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "code_long": {
+                                            "description": "Three letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "codenum": {
+                                            "description": "Country ISO 3-digit code.",
+                                            "type": "string"
+                                        },
+                                        "currency": {
+                                            "description": "List of currencies.",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "name": {
+                                            "description": "Country name.",
+                                            "type": "string"
+                                        },
+                                        "tax_number_country_code": {
+                                            "description": "VAT number country code. Important for Greece.",
+                                            "type": "string"
+                                        },
+                                        "tax_region": {
+                                            "description": "Tax region code - e.g. EU, US, NO, JP...",
+                                            "type": "string"
+                                        },
+                                        "tax_supported": {
+                                            "description": "True if tax calculation supported for this country.",
+                                            "type": "boolean"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "self_declaration": {
+                                    "description": "Self declared country as evidence.",
+                                    "properties": {
+                                        "callingCode": {
+                                            "description": "List of phone number calling codes.",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "cca2": {
+                                            "description": "Two letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "cca3": {
+                                            "description": "Three letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "ccn3": {
+                                            "description": "Country ISO 3-digit code.",
+                                            "type": "string"
+                                        },
+                                        "code": {
+                                            "description": "Two letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "code_long": {
+                                            "description": "Three letter ISO country code.",
+                                            "type": "string"
+                                        },
+                                        "codenum": {
+                                            "description": "Country ISO 3-digit code.",
+                                            "type": "string"
+                                        },
+                                        "currency": {
+                                            "description": "List of currencies.",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "name": {
+                                            "description": "Country name.",
+                                            "type": "string"
+                                        },
+                                        "tax_number_country_code": {
+                                            "description": "VAT number country code. Important for Greece.",
+                                            "type": "string"
+                                        },
+                                        "tax_region": {
+                                            "description": "Tax region code - e.g. EU, US, NO, JP...",
+                                            "type": "string"
+                                        },
+                                        "tax_supported": {
+                                            "description": "True if tax calculation supported for this country.",
+                                            "type": "boolean"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "create_timestamp": {
+                            "description": "Date and time of transaction creation.",
+                            "type": "string"
+                        },
+                        "currency_code": {
+                            "description": "Currency code for transaction - e.g. EUR.",
+                            "type": "string"
+                        },
+                        "custom_data": {
+                            "description": "Custom data related to transaction.",
+                            "type": "string"
+                        },
+                        "custom_fields": {
+                            "description": "Custom fields, stored as key-value pairs. This property is not processed and used mostly with Taxamo-built helpers.",
+                            "items": {
+                                "properties": {
+                                    "key": {
+                                        "description": "Field's key.",
+                                        "type": "string"
+                                    },
+                                    "value": {
+                                        "description": "Field's value.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "custom_id": {
+                            "description": "Custom identifier provided upon transaction creation.",
+                            "type": "string"
+                        },
+                        "customer_id": {
+                            "description": "Free-form field for storing customer id.",
+                            "type": "string"
+                        },
+                        "deducted_tax_amount": {
+                            "description": "How much tax has been deducted.",
+                            "type": "number"
+                        },
+                        "description": {
+                            "description": "Transaction description.",
+                            "type": "string"
+                        },
+                        "evidence": {
+                            "description": "Tax country of residence evidence.",
+                            "properties": {
+                                "by_2003_rules": {
+                                    "description": "Used when merchant uses 2003 EU VAT rules.",
+                                    "properties": {
+                                        "evidence_type": {
+                                            "description": "Type of evidence.",
+                                            "type": "string"
+                                        },
+                                        "evidence_value": {
+                                            "description": "Value provided as evidence - for example IP address.",
+                                            "type": "string"
+                                        },
+                                        "resolved_country_code": {
+                                            "description": "Country code that was resolved using this evidence.",
+                                            "type": "string"
+                                        },
+                                        "used": {
+                                            "description": "If the evidence was used to match the actual country.",
+                                            "type": "boolean"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "by_billing": {
+                                    "description": "Country detected by billing country code",
+                                    "properties": {
+                                        "evidence_type": {
+                                            "description": "Type of evidence.",
+                                            "type": "string"
+                                        },
+                                        "evidence_value": {
+                                            "description": "Value provided as evidence - for example IP address.",
+                                            "type": "string"
+                                        },
+                                        "resolved_country_code": {
+                                            "description": "Country code that was resolved using this evidence.",
+                                            "type": "string"
+                                        },
+                                        "used": {
+                                            "description": "If the evidence was used to match the actual country.",
+                                            "type": "boolean"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "by_cc": {
+                                    "description": "Country detected by credit card number prefix",
+                                    "properties": {
+                                        "evidence_type": {
+                                            "description": "Type of evidence.",
+                                            "type": "string"
+                                        },
+                                        "evidence_value": {
+                                            "description": "Value provided as evidence - for example IP address.",
+                                            "type": "string"
+                                        },
+                                        "resolved_country_code": {
+                                            "description": "Country code that was resolved using this evidence.",
+                                            "type": "string"
+                                        },
+                                        "used": {
+                                            "description": "If the evidence was used to match the actual country.",
+                                            "type": "boolean"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "by_ip": {
+                                    "description": "Country detected by IP",
+                                    "properties": {
+                                        "evidence_type": {
+                                            "description": "Type of evidence.",
+                                            "type": "string"
+                                        },
+                                        "evidence_value": {
+                                            "description": "Value provided as evidence - for example IP address.",
+                                            "type": "string"
+                                        },
+                                        "resolved_country_code": {
+                                            "description": "Country code that was resolved using this evidence.",
+                                            "type": "string"
+                                        },
+                                        "used": {
+                                            "description": "If the evidence was used to match the actual country.",
+                                            "type": "boolean"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "by_payment_method": {
+                                    "description": "Country detected by payment method.",
+                                    "properties": {
+                                        "evidence_type": {
+                                            "description": "Type of evidence.",
+                                            "type": "string"
+                                        },
+                                        "evidence_value": {
+                                            "description": "Value provided as evidence - for example IP address.",
+                                            "type": "string"
+                                        },
+                                        "resolved_country_code": {
+                                            "description": "Country code that was resolved using this evidence.",
+                                            "type": "string"
+                                        },
+                                        "used": {
+                                            "description": "If the evidence was used to match the actual country.",
+                                            "type": "boolean"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "by_tax_number": {
+                                    "description": "Country detected from EU TAX number",
+                                    "properties": {
+                                        "evidence_type": {
+                                            "description": "Type of evidence.",
+                                            "type": "string"
+                                        },
+                                        "evidence_value": {
+                                            "description": "Value provided as evidence - for example IP address.",
+                                            "type": "string"
+                                        },
+                                        "resolved_country_code": {
+                                            "description": "Country code that was resolved using this evidence.",
+                                            "type": "string"
+                                        },
+                                        "used": {
+                                            "description": "If the evidence was used to match the actual country.",
+                                            "type": "boolean"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "by_token": {
+                                    "description": "Country detected from SMS token",
+                                    "properties": {
+                                        "evidence_type": {
+                                            "description": "Type of evidence.",
+                                            "type": "string"
+                                        },
+                                        "evidence_value": {
+                                            "description": "Value provided as evidence - for example IP address.",
+                                            "type": "string"
+                                        },
+                                        "resolved_country_code": {
+                                            "description": "Country code that was resolved using this evidence.",
+                                            "type": "string"
+                                        },
+                                        "used": {
+                                            "description": "If the evidence was used to match the actual country.",
+                                            "type": "boolean"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "forced": {
+                                    "description": "Country forced by paramters",
+                                    "properties": {
+                                        "evidence_type": {
+                                            "description": "Type of evidence.",
+                                            "type": "string"
+                                        },
+                                        "evidence_value": {
+                                            "description": "Value provided as evidence - for example IP address.",
+                                            "type": "string"
+                                        },
+                                        "resolved_country_code": {
+                                            "description": "Country code that was resolved using this evidence.",
+                                            "type": "string"
+                                        },
+                                        "used": {
+                                            "description": "If the evidence was used to match the actual country.",
+                                            "type": "boolean"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "guessed_from_ip": {
+                                    "description": "Country guessed from IP due to lack of other evidence",
+                                    "properties": {
+                                        "evidence_type": {
+                                            "description": "Type of evidence.",
+                                            "type": "string"
+                                        },
+                                        "evidence_value": {
+                                            "description": "Value provided as evidence - for example IP address.",
+                                            "type": "string"
+                                        },
+                                        "resolved_country_code": {
+                                            "description": "Country code that was resolved using this evidence.",
+                                            "type": "string"
+                                        },
+                                        "used": {
+                                            "description": "If the evidence was used to match the actual country.",
+                                            "type": "boolean"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "other_commercially_relevant_info": {
+                                    "description": "Additional evidence held by the merchant. Can be used only with a private token.",
+                                    "properties": {
+                                        "evidence_type": {
+                                            "description": "Type of evidence.",
+                                            "type": "string"
+                                        },
+                                        "evidence_value": {
+                                            "description": "Value provided as evidence - for example IP address.",
+                                            "type": "string"
+                                        },
+                                        "resolved_country_code": {
+                                            "description": "Country code that was resolved using this evidence.",
+                                            "type": "string"
+                                        },
+                                        "used": {
+                                            "description": "If the evidence was used to match the actual country.",
+                                            "type": "boolean"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "self_declaration": {
+                                    "description": "Self declared country as evidence. Requires merchant setting to be active.",
+                                    "properties": {
+                                        "evidence_type": {
+                                            "description": "Type of evidence.",
+                                            "type": "string"
+                                        },
+                                        "evidence_value": {
+                                            "description": "Value provided as evidence - for example IP address.",
+                                            "type": "string"
+                                        },
+                                        "resolved_country_code": {
+                                            "description": "Country code that was resolved using this evidence.",
+                                            "type": "string"
+                                        },
+                                        "used": {
+                                            "description": "If the evidence was used to match the actual country.",
+                                            "type": "boolean"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "external_key": {
+                            "description": "Transaction external key",
+                            "type": "string"
+                        },
+                        "force_country_code": {
+                            "description": "Two-letter ISO country code, e.g. FR. Use it to force country code for tax calculation.",
+                            "type": "string"
+                        },
+                        "fully_informative": {
+                            "description": "Set to true if transaction has only informative lines.",
+                            "type": "boolean"
+                        },
+                        "invoice_address": {
+                            "description": "Invoice address.",
+                            "properties": {
+                                "address_detail": {
+                                    "description": "Address details - for example apartament number.",
+                                    "type": "string"
+                                },
+                                "building_number": {
+                                    "description": "Building number.",
+                                    "type": "string"
+                                },
+                                "city": {
+                                    "description": "City name.",
+                                    "type": "string"
+                                },
+                                "country": {
+                                    "description": "2-letter ISO country code.",
+                                    "type": "string"
+                                },
+                                "freeform_address": {
+                                    "description": "Freeform address. Use when structured data is not available. Will be used in SAF-MOSS file if other fields are not provided.",
+                                    "type": "string"
+                                },
+                                "postal_code": {
+                                    "description": "Postal code.",
+                                    "type": "string"
+                                },
+                                "region": {
+                                    "description": "Region, for United States - state code - e.g. NJ.",
+                                    "type": "string"
+                                },
+                                "street_name": {
+                                    "description": " Street name.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "invoice_date": {
+                            "description": "Invoice date of issue.",
+                            "type": "string"
+                        },
+                        "invoice_image_url": {
+                            "description": "Invoice image URL - provided by Taxamo.",
+                            "type": "string"
+                        },
+                        "invoice_number": {
+                            "description": "Invoice number.",
+                            "type": "string"
+                        },
+                        "invoice_place": {
+                            "description": "Invoice place of issue.",
+                            "type": "string"
+                        },
+                        "key": {
+                            "description": "Id generated by taxamo.",
+                            "type": "string"
+                        },
+                        "kind": {
+                            "description": "Transaction kind: eu-b2c, eu-b2b, domestic, untaxed",
+                            "type": "string"
+                        },
+                        "manual": {
+                            "description": "Is the transaction created manually - using private token. In manual mode, it is the merchant who calculates tax country and validates evidence. If you need API to do that when accessing the API with private token, just skip the 'manual' flag or use false value there and provide customer's ip address through buyer_ip field. Manual mode is also used when using original_transaction_key field.",
+                            "type": "boolean"
+                        },
+                        "note": {
+                            "description": "Additional note related to transaction state - for example if the transaction was created in a 'catch-all' mode or the VAT number re-check for subscriptions has failed.",
+                            "type": "string"
+                        },
+                        "order_date": {
+                            "description": "Order date in yyyy-MM-dd format, in merchant's timezone. If provided by the API caller, no timezone conversion is performed. Default value is current date and time. When using public token, the default value is used.",
+                            "type": "string"
+                        },
+                        "original_transaction_key": {
+                            "description": "Use data and evidence from original transaction. Tax will be re-calculated, but evidence won't be re-checked. This parameter is taken into account only when 'manual' flag is raised.",
+                            "type": "string"
+                        },
+                        "refunded_tax_amount": {
+                            "description": "Refunded tax amount.",
+                            "type": "number"
+                        },
+                        "refunded_total_amount": {
+                            "description": "Total amount refunde (including tax).",
+                            "type": "number"
+                        },
+                        "source": {
+                            "description": "Transaction source software - e.g. plugin",
+                            "type": "string"
+                        },
+                        "status": {
+                            "description": "Transaction status: 'N' - new, 'C' - confirmed. Can use 'C' in store-transaction! with private-token to create confirmed transaction, otherwise 'N' is default status. Not applicable for update-transaction!.",
+                            "type": "string"
+                        },
+                        "sub_account_id": {
+                            "description": "Sub account identifier.",
+                            "type": "string"
+                        },
+                        "supply_date": {
+                            "description": "Supply date in yyyy-MM-dd format.",
+                            "type": "string"
+                        },
+                        "tax_amount": {
+                            "description": "Tax amount of transaction.",
+                            "type": "number"
+                        },
+                        "tax_country_code": {
+                            "description": "Two-letter ISO country code, e.g. FR. This code applies to detected/set country for transaction, but can be set using manual mode.",
+                            "type": "string"
+                        },
+                        "tax_data": {
+                            "description": "Tax additional information - e.g. US sales tax exemption certificate data.",
+                            "properties": {
+                                "us_tax_exemption_certificate": {
+                                    "description": "US sales tax exemption certificate.",
+                                    "properties": {
+                                        "certificate_id": {
+                                            "description": "The exemption certificate number.",
+                                            "type": "string"
+                                        },
+                                        "detail": {
+                                            "description": "US tax exemption ertificate detail.",
+                                            "properties": {
+                                                "exempt_states": {
+                                                    "description": "List of states where the certificate is valid.",
+                                                    "items": {
+                                                        "properties": {
+                                                            "identifier_for_exemption_reason": {
+                                                                "description": "Identifier for exemption reason.",
+                                                                "type": "string"
+                                                            },
+                                                            "reason_for_exemption": {
+                                                                "description": "Exemption reason",
+                                                                "type": "string"
+                                                            },
+                                                            "state_abbr": {
+                                                                "description": "Two character state abbreviation.",
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "state_abbr"
+                                                        ],
+                                                        "type": "object"
+                                                    },
+                                                    "type": "array"
+                                                },
+                                                "purchaser_address1": {
+                                                    "description": "Purchaser's first address line.",
+                                                    "type": "string"
+                                                },
+                                                "purchaser_address2": {
+                                                    "description": "Purchaser's second address line.",
+                                                    "type": "string"
+                                                },
+                                                "purchaser_business_type": {
+                                                    "description": "Purchaser business type.",
+                                                    "type": "string"
+                                                },
+                                                "purchaser_business_type_other_value": {
+                                                    "description": "If business type is other, a short description must be provided.",
+                                                    "type": "string"
+                                                },
+                                                "purchaser_city": {
+                                                    "description": "Purchaser's city.",
+                                                    "type": "string"
+                                                },
+                                                "purchaser_exemption_reason": {
+                                                    "description": "The reason for exemption reason.",
+                                                    "type": "string"
+                                                },
+                                                "purchaser_exemption_reason_value": {
+                                                    "description": "The value of exemption reason.",
+                                                    "type": "string"
+                                                },
+                                                "purchaser_first_name": {
+                                                    "description": "Purchaser's first name.",
+                                                    "type": "string"
+                                                },
+                                                "purchaser_last_name": {
+                                                    "description": "Purchaser's last name.",
+                                                    "type": "string"
+                                                },
+                                                "purchaser_state": {
+                                                    "description": "Purchaser's state.",
+                                                    "type": "string"
+                                                },
+                                                "purchaser_tax_id": {
+                                                    "description": "Purchaser's TAX ID.",
+                                                    "properties": {
+                                                        "state_of_issue": {
+                                                            "description": "State of issue",
+                                                            "type": "string"
+                                                        },
+                                                        "tax_id": {
+                                                            "description": "Tax ID",
+                                                            "type": "string"
+                                                        },
+                                                        "tax_id_type": {
+                                                            "description": "Tax id type.",
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "tax_id_type"
+                                                    ],
+                                                    "type": "object"
+                                                },
+                                                "purchaser_title": {
+                                                    "description": "Purchaser's title.",
+                                                    "type": "string"
+                                                },
+                                                "purchaser_zip": {
+                                                    "description": "Purchaser's zip code.",
+                                                    "type": "string"
+                                                },
+                                                "single_purchase": {
+                                                    "description": "Set to true if this certificate is valid for single purchase only.",
+                                                    "type": "boolean"
+                                                },
+                                                "single_purchase_order_identifier": {
+                                                    "description": "Purchase/order identifier for single purchase.",
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "exempt_states",
+                                                "purchaser_address1",
+                                                "purchaser_business_type",
+                                                "purchaser_city",
+                                                "purchaser_exemption_reason",
+                                                "purchaser_exemption_reason_value",
+                                                "purchaser_first_name",
+                                                "purchaser_last_name",
+                                                "purchaser_state",
+                                                "purchaser_tax_id",
+                                                "purchaser_zip"
+                                            ],
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "tax_deducted": {
+                            "description": "If the transaction is in a country supported by Taxamo, but the tax is not calculated due to merchant settings or EU B2B transaction for example.",
+                            "type": "boolean"
+                        },
+                        "tax_entity_name": {
+                            "description": "To which entity is the tax due.",
+                            "type": "string"
+                        },
+                        "tax_number_service": {
+                            "description": "Tax number service identifier - if available for a given region and the region is enabled.",
+                            "type": "string"
+                        },
+                        "tax_supported": {
+                            "description": "Is tax calculation supported for a detected tax location?",
+                            "type": "boolean"
+                        },
+                        "tax_timezone": {
+                            "description": "Timezone name for tax transaction.",
+                            "type": "string"
+                        },
+                        "test": {
+                            "description": "Was this transaction created in test mode?",
+                            "type": "boolean"
+                        },
+                        "total_amount": {
+                            "description": "Total amount of transaction.",
+                            "type": "number"
+                        },
+                        "transaction_lines": {
+                            "description": "Transaction lines.",
+                            "items": {
+                                "properties": {
+                                    "additional_currencies": {
+                                        "description": "Additional currency information - can be used to receive additional information about invoice in another currency.",
+                                        "properties": {
+                                            "invoice": {
+                                                "description": "Invoicing currency information.",
+                                                "properties": {
+                                                    "amount": {
+                                                        "description": "Amount (w/o TAX) in designated currency.",
+                                                        "type": "number"
+                                                    },
+                                                    "currency_code": {
+                                                        "description": "3-letter ISO currency code.",
+                                                        "type": "string"
+                                                    },
+                                                    "fx_rate": {
+                                                        "description": "Foreign exchange rate used in calculation",
+                                                        "type": "number"
+                                                    },
+                                                    "tax_amount": {
+                                                        "description": "Tax amount in designated currency.",
+                                                        "type": "number"
+                                                    },
+                                                    "total_amount": {
+                                                        "description": "Total amount in designated currency.",
+                                                        "type": "number"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "amount": {
+                                        "description": "Amount. Required if total amount or both unit price and quantity are not provided.",
+                                        "type": "number"
+                                    },
+                                    "custom_fields": {
+                                        "description": "Custom fields, stored as key-value pairs. This property is not processed and used mostly with Taxamo-built helpers.",
+                                        "items": {
+                                            "properties": {
+                                                "key": {
+                                                    "description": "Field's key.",
+                                                    "type": "string"
+                                                },
+                                                "value": {
+                                                    "description": "Field's value.",
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "type": "array"
+                                    },
+                                    "custom_id": {
+                                        "description": "Custom id, provided by ecommerce software.",
+                                        "type": "string"
+                                    },
+                                    "deducted_tax_amount": {
+                                        "description": "Deducted tax amount, calculated by taxmo.",
+                                        "type": "number"
+                                    },
+                                    "deducted_tax_rate": {
+                                        "description": "Deducted tax rate, calculated by taxamo.",
+                                        "type": "number"
+                                    },
+                                    "description": {
+                                        "description": "Line contents description.",
+                                        "type": "string"
+                                    },
+                                    "id": {
+                                        "description": "Generated id.",
+                                        "type": "number"
+                                    },
+                                    "informative": {
+                                        "description": "If the line is provided for informative purposes. Such line must have :tax-rate and optionally :tax-name - if not, API validation will fail for this line.",
+                                        "type": "boolean"
+                                    },
+                                    "line_key": {
+                                        "description": "Generated line key.",
+                                        "type": "string"
+                                    },
+                                    "product_code": {
+                                        "description": "Internal product code, used for invoicing for example.",
+                                        "type": "string"
+                                    },
+                                    "product_tax_code": {
+                                        "description": "External product tax code for a line, for example TIC in US Sales tax.",
+                                        "type": "string"
+                                    },
+                                    "product_type": {
+                                        "description": "Product type, according to dictionary /dictionaries/product_types. ",
+                                        "type": "string"
+                                    },
+                                    "quantity": {
+                                        "description": "Quantity Defaults to 1.",
+                                        "type": "number"
+                                    },
+                                    "refunded_tax_amount": {
+                                        "description": "Refunded tax amount, calculated by taxmo.",
+                                        "type": "number"
+                                    },
+                                    "refunded_total_amount": {
+                                        "description": "Refunded total amount, calculated by taxmo.",
+                                        "type": "number"
+                                    },
+                                    "supply_date": {
+                                        "description": "Date of supply in yyyy-MM-dd format.",
+                                        "type": "string"
+                                    },
+                                    "tax_amount": {
+                                        "description": "Tax amount, calculated by taxamo.",
+                                        "type": "number"
+                                    },
+                                    "tax_name": {
+                                        "description": "Tax name, calculated by taxamo.  Can be overwritten when informative field is true.",
+                                        "type": "string"
+                                    },
+                                    "tax_rate": {
+                                        "description": "Tax rate, calculated by taxamo. Must be provided when informative field is true.",
+                                        "type": "number"
+                                    },
+                                    "total_amount": {
+                                        "description": "Total amount. Required if amount or both unit price and quantity are not provided.",
+                                        "type": "number"
+                                    },
+                                    "unit_of_measure": {
+                                        "description": "Unit of measure.",
+                                        "type": "string"
+                                    },
+                                    "unit_price": {
+                                        "description": "Unit price.",
+                                        "type": "number"
+                                    }
+                                },
+                                "required": [
+                                    "custom_id"
+                                ],
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "verification_token": {
+                            "description": "Verification token",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "currency_code",
+                        "transaction_lines"
+                    ],
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

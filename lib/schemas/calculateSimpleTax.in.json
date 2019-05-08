@@ -1,0 +1,65 @@
+{
+    "type": "object",
+    "properties": {
+        "product_type": {
+            "required": false,
+            "type": "string"
+        },
+        "invoice_address_city": {
+            "required": false,
+            "type": "string"
+        },
+        "buyer_credit_card_prefix": {
+            "required": false,
+            "type": "string"
+        },
+        "currency_code": {
+            "required": true,
+            "type": "string"
+        },
+        "invoice_address_region": {
+            "required": false,
+            "type": "string"
+        },
+        "unit_price": {
+            "required": false,
+            "type": "number"
+        },
+        "quantity": {
+            "required": false,
+            "type": "number"
+        },
+        "buyer_tax_number": {
+            "required": false,
+            "type": "string"
+        },
+        "force_country_code": {
+            "required": false,
+            "type": "string"
+        },
+        "order_date": {
+            "required": false,
+            "type": "string"
+        },
+        "amount": {
+            "required": false,
+            "type": "number"
+        },
+        "billing_country_code": {
+            "required": false,
+            "type": "string"
+        },
+        "invoice_address_postal_code": {
+            "required": false,
+            "type": "string"
+        },
+        "total_amount": {
+            "required": false,
+            "type": "number"
+        },
+        "tax_deducted": {
+            "required": false,
+            "type": "boolean"
+        }
+    }
+}

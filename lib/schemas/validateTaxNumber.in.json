@@ -1,0 +1,13 @@
+{
+    "type": "object",
+    "properties": {
+        "country_code": {
+            "required": false,
+            "type": "string"
+        },
+        "tax_number": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

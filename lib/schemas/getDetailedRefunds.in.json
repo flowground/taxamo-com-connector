@@ -1,0 +1,29 @@
+{
+    "type": "object",
+    "properties": {
+        "format": {
+            "required": false,
+            "type": "string"
+        },
+        "country_codes": {
+            "required": false,
+            "type": "string"
+        },
+        "date_from": {
+            "required": false,
+            "type": "string"
+        },
+        "date_to": {
+            "required": false,
+            "type": "string"
+        },
+        "limit": {
+            "required": false,
+            "type": "number"
+        },
+        "offset": {
+            "required": false,
+            "type": "number"
+        }
+    }
+}

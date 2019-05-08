@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "tax_supported": {
+            "required": false,
+            "type": "boolean"
+        }
+    }
+}

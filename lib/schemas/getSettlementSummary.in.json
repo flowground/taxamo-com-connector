@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "properties": {
+        "moss_country_code": {
+            "required": false,
+            "type": "string"
+        },
+        "tax_region": {
+            "required": false,
+            "type": "string"
+        },
+        "start_month": {
+            "required": false,
+            "type": "string"
+        },
+        "end_month": {
+            "required": false,
+            "type": "string"
+        },
+        "quarter": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,45 @@
+{
+    "type": "object",
+    "properties": {
+        "moss_tax_id": {
+            "required": false,
+            "type": "string"
+        },
+        "currency_code": {
+            "required": false,
+            "type": "string"
+        },
+        "end_month": {
+            "required": false,
+            "type": "string"
+        },
+        "tax_id": {
+            "required": false,
+            "type": "string"
+        },
+        "refund_date_kind_override": {
+            "required": false,
+            "type": "string"
+        },
+        "start_month": {
+            "required": false,
+            "type": "string"
+        },
+        "moss_country_code": {
+            "required": false,
+            "type": "string"
+        },
+        "format": {
+            "required": false,
+            "type": "string"
+        },
+        "tax_country_code": {
+            "required": false,
+            "type": "string"
+        },
+        "quarter": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

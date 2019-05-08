@@ -1,0 +1,22 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "country_code": {
+                    "description": "Two letter ISO country code.",
+                    "type": "string"
+                },
+                "recipient": {
+                    "description": "Recipient phone number.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "country_code",
+                "recipient"
+            ],
+            "type": "object"
+        }
+    }
+}

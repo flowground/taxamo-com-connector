@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "global_currency_code": {
+            "required": false,
+            "type": "string"
+        },
+        "date_from": {
+            "required": true,
+            "type": "string"
+        },
+        "date_to": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,614 @@
+{
+    "title": "Taxamo",
+    "description": "Taxamo's elegant suite of APIs and comprehensive reporting dashboard enables digital merchants to easily comply with EU regulatory requirements on tax calculation, evidence collection, tax return creation and data storage.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/taxamo.com/1/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://api.taxamo.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "apiKey": {
+                "label": "Token (apiKey)",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "getCountriesDict": {
+            "main": "./lib/actions/getCountriesDict.js",
+            "title": "Countries",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getCountriesDict.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getCurrenciesDict": {
+            "main": "./lib/actions/getCurrenciesDict.js",
+            "title": "Currencies",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getCurrenciesDict.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getProductTypesDict": {
+            "main": "./lib/actions/getProductTypesDict.js",
+            "title": "Product types",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getProductTypesDict.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "locateMyIP": {
+            "main": "./lib/actions/locateMyIP.js",
+            "title": "Locate IP",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/locateMyIP.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "locateGivenIP": {
+            "main": "./lib/actions/locateGivenIP.js",
+            "title": "Locate provided IP",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/locateGivenIP.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getDomesticSummaryReport": {
+            "main": "./lib/actions/getDomesticSummaryReport.js",
+            "title": "Calculate domestic summary",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getDomesticSummaryReport.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getEuViesReport": {
+            "main": "./lib/actions/getEuViesReport.js",
+            "title": "Calculate EU VIES report",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getEuViesReport.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getDetailedRefunds": {
+            "main": "./lib/actions/getDetailedRefunds.js",
+            "title": "Detailed refunds",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getDetailedRefunds.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getRefunds": {
+            "main": "./lib/actions/getRefunds.js",
+            "title": "Fetch refunds",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getRefunds.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getSettlementSummary": {
+            "main": "./lib/actions/getSettlementSummary.js",
+            "title": "Fetch summary",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getSettlementSummary.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getSettlement": {
+            "main": "./lib/actions/getSettlement.js",
+            "title": "Fetch settlement",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getSettlement.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getSettlementStatsByCountry": {
+            "main": "./lib/actions/getSettlementStatsByCountry.js",
+            "title": "Settlement by country",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getSettlementStatsByCountry.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getSettlementStatsByTaxationType": {
+            "main": "./lib/actions/getSettlementStatsByTaxationType.js",
+            "title": "Settlement by tax type",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getSettlementStatsByTaxationType.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getDailySettlementStats": {
+            "main": "./lib/actions/getDailySettlementStats.js",
+            "title": "Settlement stats over time",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getDailySettlementStats.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getTransactionsStats": {
+            "main": "./lib/actions/getTransactionsStats.js",
+            "title": "Transaction stats",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getTransactionsStats.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getTransactionsStatsByCountry": {
+            "main": "./lib/actions/getTransactionsStatsByCountry.js",
+            "title": "Settlement by country",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getTransactionsStatsByCountry.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "calculateSimpleTax": {
+            "main": "./lib/actions/calculateSimpleTax.js",
+            "title": "Simple tax",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/calculateSimpleTax.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "calculateTax": {
+            "main": "./lib/actions/calculateTax.js",
+            "title": "Calculate tax",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/calculateTax.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "calculateTaxLocation": {
+            "main": "./lib/actions/calculateTaxLocation.js",
+            "title": "Calculate location",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/calculateTaxLocation.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "validateTaxNumber": {
+            "main": "./lib/actions/validateTaxNumber.js",
+            "title": "Validate VAT number",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/validateTaxNumber.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "listTransactions": {
+            "main": "./lib/actions/listTransactions.js",
+            "title": "Browse transactions",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/listTransactions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "createTransaction": {
+            "main": "./lib/actions/createTransaction.js",
+            "title": "Store transaction",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/createTransaction.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "cancelTransaction": {
+            "main": "./lib/actions/cancelTransaction.js",
+            "title": "Delete transaction",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/cancelTransaction.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getTransaction": {
+            "main": "./lib/actions/getTransaction.js",
+            "title": "Retrieve transaction data.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getTransaction.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "updateTransaction": {
+            "main": "./lib/actions/updateTransaction.js",
+            "title": "Update transaction",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/updateTransaction.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "confirmTransaction": {
+            "main": "./lib/actions/confirmTransaction.js",
+            "title": "Confirm transaction",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/confirmTransaction.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "emailRefund": {
+            "main": "./lib/actions/emailRefund.js",
+            "title": "Email credit note",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/emailRefund.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "emailInvoice": {
+            "main": "./lib/actions/emailInvoice.js",
+            "title": "Email invoice",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/emailInvoice.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "listPayments": {
+            "main": "./lib/actions/listPayments.js",
+            "title": "List payments",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/listPayments.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "createPayment": {
+            "main": "./lib/actions/createPayment.js",
+            "title": "Register a payment",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/createPayment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "capturePayment": {
+            "main": "./lib/actions/capturePayment.js",
+            "title": "Capture payment",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/capturePayment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "listRefunds": {
+            "main": "./lib/actions/listRefunds.js",
+            "title": "Get transaction refunds",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/listRefunds.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "createRefund": {
+            "main": "./lib/actions/createRefund.js",
+            "title": "Create a refund",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/createRefund.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "unconfirmTransaction": {
+            "main": "./lib/actions/unconfirmTransaction.js",
+            "title": "Un-confirm the transaction",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/unconfirmTransaction.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "createSMSToken": {
+            "main": "./lib/actions/createSMSToken.js",
+            "title": "Create SMS token",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/createSMSToken.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "verifySMSToken": {
+            "main": "./lib/actions/verifySMSToken.js",
+            "title": "Verify SMS token",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/verifySMSToken.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
